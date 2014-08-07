@@ -197,8 +197,7 @@ static bool logging = false;
             } else {
                 handler = _messageHandler;
                 if (!handler) {
-                    NSLog(@"WVJB Warning: No handler for message from JS: %@", message);
-                    return responseCallback(@{});
+                    [NSException raise:@"WVJBNoHandlerException" format:@"No handler for message from JS: %@", message];
                 }
             }
             
